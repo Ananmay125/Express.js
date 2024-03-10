@@ -1,0 +1,95 @@
+html{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+body{
+    /*background-image: url("images/nyan-cat.jpg");
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    /*transition: background-image 1s ease-in-out;*/
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    background-color: purple;
+    font-size: 17px;
+    font-family: 'Trebuchet MS', serif;
+}
+
+.navbar {
+    background-color: purple;
+    opacity: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+    margin: auto;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.container .navbar {
+    justify-content: space-between;
+}
+
+.navbar ul li {
+    list-style-type: none;
+    color: whitesmoke;
+}
+
+.container .navbar ul li {
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.navbar a {
+    color: white;
+    font-weight: bold;
+}
+
+.main-heading{
+    color:whitesmoke;
+    padding-left: 15px;
+    display: inline-block;
+    cursor: pointer;
+    transition: filter 1s ease;
+}
+
+.main-heading:hover {
+    color: red;
+    filter: brightness(1.2);
+}
+
+.navbar ul li:hover{
+    color:red;
+}
+
+.hero-image{
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#bruh-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}

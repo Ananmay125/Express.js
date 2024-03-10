@@ -1,0 +1,74 @@
+body {
+    background-image: url("/images/nyan-cat.jpg");
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+* {
+    color: white;
+    font-size: 17px;
+    font-family: 'Trebuchet MS', serif;
+}
+
+.form-div {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 35px;
+    background: linear-gradient(90deg, #00dbde, #fc00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-heading-div {
+    display: flex;
+    justify-content: center;
+}
+
+.button-submit {
+    width: 210px;
+    margin-top: 10px;
+}
+
+#username{
+    background-color: black;
+    border-radius: 5px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    color: white;
+    padding-left: 5px;
+    height: 35px;
+    width: 210px;
+}
+
+#password{
+    background-color: black;
+    border-radius: 5px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    color: white;
+    padding-left: 5px;
+    height: 35px;
+    width: 210px;
+}
+
+#login-button{
+    margin-top: 10px;
+    width: 215px;
+    background-color: yellow;
+    height: 39px;
+    border-radius: 5px;
+    color: black;
+    border: 0;
+}
+
+#login-button:hover{
+    background-color: red;
+    color: white;
+}
