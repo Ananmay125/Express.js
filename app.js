@@ -6,9 +6,8 @@ const app = express();
 const port = 3000;
 
 const users = [
-    { username: 'user1', password: 'password1' },
-    { username: 'user2', password: 'password2' },
-    // Add more user credentials as needed
+    { username: 'sick', password: 'cool123sick' },
+    { username: 'cool', password: 'sick123cool' },
 ];
 
 app.use(express.static('public'));
