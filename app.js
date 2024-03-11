@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
+    // Pass the error message to the login.html template
     res.sendFile(__dirname + '/login.html');
 });
 
@@ -53,7 +54,8 @@ app.post('/login', (req, res) => {
         req.session.username = user.username;
         res.redirect('/login-success');
     } else {
-        res.send('Invalid credentials');
+        // Redirect to /login with an error query parameter
+        res.redirect('/login?error=Invalid credentials');
     }
 });
 

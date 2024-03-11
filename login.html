@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/styles2.css">
     <title>Login</title>
+    <script>
+        // Check if there is an error message in the URL and display it
+        document.addEventListener('DOMContentLoaded', function() {
+            const queryParams = new URLSearchParams(window.location.search);
+            const error = queryParams.get('error');
+
+            if (error) {
+                document.getElementById('error-message').innerText = error;
+            }
+        });
+    </script>
 </head>
 <body>
 <div class="main-heading-div">
@@ -12,6 +23,7 @@
 </div>
 <div class="form-div">
     <form action="/login" method="post">
+        <div id="error-message" style="color: red;"></div>
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username" required>
         <br>
