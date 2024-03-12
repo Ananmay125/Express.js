@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/styles2.css">
+    <link rel="icon" type="x/icon" href="/images/sanic.png">
     <title>Login</title>
     <script>
         // Check if there is an error message in the URL and display it
@@ -25,7 +26,7 @@
     <form action="/login" method="post">
         <div id="error-message" style="color: red;"></div>
         <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required>
+        <input type="text" id="username" name="username" autocomplete="off" required>
         <br>
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" required>

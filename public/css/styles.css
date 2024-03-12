@@ -1,34 +1,23 @@
-html{
+html {
     padding: 0;
     margin: 0;
     border: 0;
 }
 
-body{
-    /*background-image: url("images/nyan-cat.jpg");
-    background-size:cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    /*transition: background-image 1s ease-in-out;*/
+body {
     padding: 0;
     margin: 0;
     border: 0;
-}
-
-a {
-    text-decoration: none;
+    font-family: 'Trebuchet MS', serif;
 }
 
 .container {
     background-color: purple;
     font-size: 17px;
-    font-family: 'Trebuchet MS', serif;
 }
 
 .navbar {
-    background-color: purple;
-    opacity: 90%;
+    background-image: linear-gradient(to right, #002244, #041E42);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,6 +28,8 @@ a {
 
 .navbar ul {
     display: flex;
+    justify-content: center;
+    padding: 0;
 }
 
 .container .navbar {
@@ -58,10 +49,11 @@ a {
 .navbar a {
     color: white;
     font-weight: bold;
+    text-decoration: none;
 }
 
-.main-heading{
-    color:whitesmoke;
+.main-heading {
+    color: white;
     padding-left: 15px;
     display: inline-block;
     cursor: pointer;
@@ -73,23 +65,39 @@ a {
     filter: brightness(1.2);
 }
 
-.navbar ul li:hover{
-    color:red;
+.navbar ul li:hover {
+    color: red;
 }
 
-.hero-image{
+.hero-image {
     max-width: 100%;
-    max-height: 100%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
 }
 
 #bruh-image {
     width: 100%;
     height: auto;
-    max-width: 100%;
-    max-height: 100%;
     opacity: 1;
     transition: opacity 1s ease-in-out;
+}
+
+@media only screen and (max-width: 620px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .container .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .hero-image {
+        height: auto;
+    }
+
+    .main-heading{
+        padding-left: 0;
+        position: relative;
+        bottom: 10px;
+    }
 }

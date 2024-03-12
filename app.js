@@ -8,6 +8,7 @@ const port = 3000;
 const users = [
     { username: 'sick', password: 'cool123sick' },
     { username: 'cool', password: 'sick123cool' },
+    { username: 'sus', password: 'sussybaka' },
 ];
 
 app.use(express.static('public'));
@@ -15,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
 
 app.get('/', (req, res) => {
-    res.send('Welcome to the login page!');
+    res.sendFile(__dirname + '/index.html');
 });
 
 app.get('/login', (req, res) => {

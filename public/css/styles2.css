@@ -13,11 +13,12 @@ body {
 }
 
 .form-div {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 }
 
-h1 {
+h1{
     font-size: 35px;
     background: linear-gradient(90deg, #00dbde, #fc00ff);
     -webkit-background-clip: text;
@@ -71,4 +72,28 @@ h1 {
 #login-button:hover{
     background-color: red;
     color: white;
+    cursor: pointer;
+}
+
+.text-1 {
+    color: yellow;
+    font-family: 'Trebuchet MS', serif;
+    font-weight: bold;
+}
+
+.heading-div {
+    display: flex;
+    justify-content: center;
+}
+
+.rest-div {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 620px) {
+    h1{
+        font-size: 30px;
+        text-align: center;
+    }
 }
