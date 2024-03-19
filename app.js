@@ -20,7 +20,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    // Pass the error message to the login.html template
     res.sendFile(__dirname + '/login.html');
 });
 
@@ -36,6 +35,10 @@ app.get('/bruh.html', (req, res) => {
     res.sendFile(__dirname + '/bruh.html');
 });
 
+app.get('/secret', (req, res) => {
+    res.sendFile(__dirname + '/secret.html');
+});
+
 app.get('/among-us.html', (req, res) => {
     res.sendFile(__dirname + '/among-us.html');
 });
@@ -46,8 +49,6 @@ app.get('/sus.html', (req, res) => {
 
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
-
-    // Simple authentication using an array of user credentials
     const user = users.find(u => u.username === username && u.password === password);
 
     if (user) {
@@ -55,7 +56,6 @@ app.post('/login', (req, res) => {
         req.session.username = user.username;
         res.redirect('/login-success');
     } else {
-        // Redirect to /login with an error query parameter
         res.redirect('/login?error=Invalid credentials');
     }
 });
