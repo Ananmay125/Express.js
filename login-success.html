@@ -30,28 +30,46 @@
 <main>
     <h1 class="main-head">Reddit Memes</h1>
     <div class="meme-contain">
-        <div id="memes-container">
-        </div>
+        <div id="memes-container"></div>
     </div>
+
     <script>
-        fetch('/random-memes')
-            .then(response => response.json())
-            .then(memes => {
-                const memesContainer = document.getElementById('memes-container');
-                memes.forEach(meme => {
-                    const memeElement = document.createElement('div');
-                    memeElement.innerHTML = `
-                        <h4>${meme.title}</h4>
-                        <div class="image-contain">
-                        <img class="meme-image" src="${meme.imageUrl}" alt="${meme.title}">
-                        </div>
-                    `;
-                    memesContainer.appendChild(memeElement);
+        // Function to fetch memes from the server
+        function fetchMemes() {
+            fetch('/random-memes')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch memes');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    displayMemes(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching memes:', error);
                 });
-            })
-            .catch(error => {
-                console.error('Error fetching memes:', error);
+        }
+
+        // Function to display memes on the page
+        function displayMemes(memes) {
+            const memesContainer = document.getElementById('memes-container');
+            memesContainer.innerHTML = '';
+
+            memes.forEach(meme => {
+                const memeElement = document.createElement('div');
+                memeElement.innerHTML = `
+                    <h4>${meme.title}</h4>
+                    <div class="image-contain">
+                    <img class="meme-image" src="${meme.imageUrl}" alt="${meme.title}">
+                    </div>
+                `;
+                memesContainer.appendChild(memeElement);
             });
+        }
+
+        // Fetch memes when the page loads
+        window.onload = fetchMemes;
     </script>
     <img id="bruh-image" src="/images/smudge.png" alt="smudge-cat">
 </main>

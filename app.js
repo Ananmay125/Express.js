@@ -17,20 +17,37 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
 
-const subreddit = 'memes';
-const NUM_MEMES = 10;
+const subreddit = 'memes'; // Change this to the subreddit you want to scrape
+const NUM_MEMES = 5; // Number of memes to display on the page
 
-let afterParam = '';
+let afterParam = ''; // Parameter to track the post to start the next page from
+
+// Your Reddit API credentials
+const clientID = 'isUoq3YZrPY_XDDL-wSlsw'; // Replace with your Reddit API client ID
+const clientSecret = '5_g9n_dH9N4ELfBONNoFHhb71mqpFA'; // Replace with your Reddit API client secret
+
+// Axios instance with custom headers including User-Agent and authentication credentials
+const redditAPI = axios.create({
+    baseURL: 'https://www.reddit.com',
+    headers: {
+        'User-Agent': 'memesite/1.0'
+    },
+    // Add authentication credentials
+    auth: {
+        username: clientID,
+        password: clientSecret
+    }
+});
 
 // Function to fetch memes from Reddit
 app.get('/random-memes', async (req, res) => {
     try {
-        const redditResponse = await axios.get(`https://www.reddit.com/r/${subreddit}/top.json?limit=${NUM_MEMES}&after=${afterParam}`);
+        const redditResponse = await redditAPI.get(`/r/${subreddit}/top.json?limit=${NUM_MEMES}&after=${afterParam}`);
         const memes = redditResponse.data.data.children.map(post => ({
             title: post.data.title,
-            imageUrl: post.data.url_overridden_by_dest
+            imageUrl: post.data.url_overridden_by_dest // or post.data.url, depending on Reddit API response
         }));
-        afterParam = redditResponse.data.data.after;
+        afterParam = redditResponse.data.data.after; // Update afterParam for pagination
         res.json(memes);
     } catch (error) {
         console.error('Error fetching memes:', error);
