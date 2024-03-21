@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const axios = require('axios');
 
 const app = express();
 const port = 3000;
@@ -9,11 +10,33 @@ const users = [
     { username: 'sick', password: 'cool123sick' },
     { username: 'cool', password: 'sick123cool' },
     { username: 'sus', password: 'sussybaka' },
+    { username: 'penguin', password: 'penguin031'},
 ];
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
+
+const subreddit = 'memes';
+const NUM_MEMES = 10;
+
+let afterParam = '';
+
+// Function to fetch memes from Reddit
+app.get('/random-memes', async (req, res) => {
+    try {
+        const redditResponse = await axios.get(`https://www.reddit.com/r/${subreddit}/top.json?limit=${NUM_MEMES}&after=${afterParam}`);
+        const memes = redditResponse.data.data.children.map(post => ({
+            title: post.data.title,
+            imageUrl: post.data.url_overridden_by_dest
+        }));
+        afterParam = redditResponse.data.data.after;
+        res.json(memes);
+    } catch (error) {
+        console.error('Error fetching memes:', error);
+        res.status(500).send('Error fetching memes');
+    }
+});
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');

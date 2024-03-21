@@ -9,6 +9,7 @@ body {
     margin: 0;
     border: 0;
     font-family: 'Trebuchet MS', serif;
+    background-color: #343434;
 }
 
 .container {
@@ -81,6 +82,32 @@ body {
     transition: opacity 1s ease-in-out;
 }
 
+.meme-image{
+    width: 400px;
+}
+
+.main-head{
+    text-align: center;
+    font-family: 'Trebuchet MS', serif;
+    font-weight: bold;
+    color: white;
+}
+
+.meme-contain {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    color: white;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.image-contain{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
 @media only screen and (max-width: 620px) {
     .navbar {
         flex-direction: column;
@@ -95,9 +122,21 @@ body {
         height: auto;
     }
 
-    .main-heading{
+    .main-heading {
         padding-left: 0;
         position: relative;
         bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 490px) {
+    .meme-image{
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    .meme-image{
+        width: 200px;
     }
 }
