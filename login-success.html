@@ -34,7 +34,6 @@
     </div>
 
     <script>
-        // Function to fetch memes from the server
         function fetchMemes() {
             fetch('/random-memes')
                 .then(response => {
@@ -51,7 +50,6 @@
                 });
         }
 
-        // Function to display memes on the page
         function displayMemes(memes) {
             const memesContainer = document.getElementById('memes-container');
             memesContainer.innerHTML = '';
@@ -68,7 +66,6 @@
             });
         }
 
-        // Fetch memes when the page loads
         window.onload = fetchMemes;
     </script>
     <img id="bruh-image" src="/images/smudge.png" alt="smudge-cat">
