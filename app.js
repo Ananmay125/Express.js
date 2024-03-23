@@ -90,13 +90,13 @@ app.post('/login', (req, res) => {
     if (user) {
         req.session.authenticated = true;
         req.session.username = user.username;
-        res.redirect('/login-success');
+        res.redirect('/login-success.html');
     } else {
         res.redirect('/login?error=Invalid credentials');
     }
 });
 
-app.get('/login-success', (req, res) => {
+app.get('/login-success.html', (req, res) => {
     if (req.session.authenticated) {
         res.sendFile(__dirname + '/login-success.html');
     } else {
