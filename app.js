@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
 
 const subreddit = 'memes';
-const NUM_MEMES = 20;
+const NUM_MEMES = 40;
 
 let afterParam = '';
 
@@ -69,10 +69,6 @@ app.get('/login-success.html', (req, res) => {
 
 app.get('/bruh.html', (req, res) => {
     res.sendFile(__dirname + '/bruh.html');
-});
-
-app.get('/secret', (req, res) => {
-    res.sendFile(__dirname + '/secret.html');
 });
 
 app.get('/among-us.html', (req, res) => {
