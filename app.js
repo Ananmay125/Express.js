@@ -17,7 +17,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
 
-const subreddit = 'wholesomememes';
+const subreddit = 'memes';
 const NUM_MEMES = 20;
 
 let afterParam = '';
